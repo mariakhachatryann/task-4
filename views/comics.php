@@ -1,4 +1,5 @@
 <?php if ($comics): ?>
+    <title>Marvel Comics</title>
     <h1 class="p-title">Comics</h1>
     <div class="comics-block">
         <?php foreach ($comics as $com) : ?>

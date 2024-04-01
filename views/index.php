@@ -1,4 +1,5 @@
 <?php if ($character): ?>
+    <title>Marvel Information Portal</title>
     <div class="container">
         <div class="character-block">
             <div class="character-thumb">

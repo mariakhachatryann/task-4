@@ -1,7 +1,8 @@
-<?php if ($character): ?>
+<?php if ($characters): ?>
+    <title>Marvel characters</title>
     <h1 class="p-title">Characters</h1>
     <div class="characters-block">
-        <?php foreach ($character as $char) : ?>
+        <?php foreach ($characters as $char) : ?>
             <div class="character-card">
                 <img src="<?= $char['thumbnail']['path'] . "." . $char['thumbnail']['extension'] ?>" alt="img" width="300px" height="300p">
                 <p><?= $char['name'] ?></p>

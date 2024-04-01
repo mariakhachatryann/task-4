@@ -3,7 +3,7 @@ class ApiModel
 {
     private $secretKey = '0afa3195620fa57220e024692f7d62a4aae9aed1';
     private $publicKey = 'acfafd17b7766f992b5bad7c00c68524';
-    private function makeRequest($url)
+    private function makeRequest(string $url): array
     {
         $timestamp = time();
         $offset = ceil(random_int(0, 2000));
@@ -17,21 +17,21 @@ class ApiModel
         return json_decode($result, true);
     }
 
-    public function index($limit)
+    public function index(int $limit): array
     {
         $url = "https://gateway.marvel.com/v1/public/characters?apikey={$this->publicKey}&limit={$limit}";
         $data = $this->makeRequest($url);
         return $this->processResponse($data);
     }
 
-    public function comics($limit)
+    public function comics(int $limit): array
     {
         $url = "https://gateway.marvel.com/v1/public/comics?apikey={$this->publicKey}&limit={$limit}";
         $data = $this->makeRequest($url);
         return $this->processResponse($data);
     }
 
-    public function getCharacterById($characterId)
+    public function getCharacterById(int $characterId): array
     {
         $url = "https://gateway.marvel.com/v1/public/characters/{$characterId}?apikey={$this->publicKey}";
         $data = $this->makeRequest($url);
@@ -43,7 +43,7 @@ class ApiModel
         }
     }
 
-    public function getComicById($comicId)
+    public function getComicById(int $comicId): array
     {
         $url = "https://gateway.marvel.com/v1/public/comics/{$comicId}?apikey={$this->publicKey}";
         $data = $this->makeRequest($url);
@@ -55,7 +55,7 @@ class ApiModel
         }
     }
 
-    private function processResponse($data)
+    private function processResponse(array $data): array
     {
         if ($data && $data['code'] == 200 && isset($data['data']['results'][0])) {
             return $data['data']['results'];

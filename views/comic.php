@@ -1,4 +1,5 @@
 <?php if ($comic): ?>
+    <title>Details <?=$comic[0]['title'] ?></title>
     <div class="container">
         <div class="character-block">
             <div class="character-thumb">
